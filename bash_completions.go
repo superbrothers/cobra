@@ -256,7 +256,7 @@ func writePostscript(buf *bytes.Buffer, name string) {
 	buf.WriteString(fmt.Sprintf("__start_%s()\n", name))
 	buf.WriteString(fmt.Sprintf(`{
     local cur prev words cword
-    declare -A flaghash 2>/dev/null || :
+    declare -gA flaghash 2>/dev/null || :
     if declare -F _init_completion >/dev/null 2>&1; then
         _init_completion -s || return
     else
